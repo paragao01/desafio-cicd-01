@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Buil e Push da Imagem Docker
-        uses: actions/build-push-action@v6
+        uses: docker/build-push-action@v6
         with:
           push: true
           file: src/Review-Filmes.Web/Dockerfile
