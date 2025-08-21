@@ -21,6 +21,12 @@ jobs:
       - name: Execucao do comando build
         working-directory: ./src
         run: dotnet build Review-Filmes.sln
+  
+
+  testes:
+    name: Teste Unitario
+    needs: [build-app]
+    uses: https://github.com/paragao01/desafio-cicd-01/.github/workflows/testes.yml@main
 
   release:
     name: Criacao de Release
@@ -44,6 +50,6 @@ jobs:
           file: ./src/Review-Filmes.Web/Dockerfile
           tags: |
             oagara/review-filmes:latest
-            oagara/review-filmes:${{ github.run_number }}
+            oagara/review-filmes:v${{ github.run_number }}
 
         
