@@ -26,7 +26,7 @@ jobs:
   testes:
     name: Teste Unitario
     needs: [build-app]
-    uses: https://github.com/paragao01/desafio-cicd-01/.github/workflows/testes.yml@main
+    uses: paragao01/desafio-cicd-01/.github/workflows/testes.yml@main
 
   release:
     name: Criacao de Release
