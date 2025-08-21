@@ -40,9 +40,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          file: src/Review-Filmes.Web/Dockerfile
+          context: ./src
+          file: ./src/Review-Filmes.Web/Dockerfile
           tags: |
-            oagara/Review-Filmes.Web.csproj:latest
-            oagara/Review-Filmes.Web.csproj:${{ github.run_number }}
+            oagara/review-filmes:latest
+            oagara/review-filmes:${{ github.run_number }}
 
         
