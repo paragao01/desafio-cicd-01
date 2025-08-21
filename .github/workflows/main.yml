@@ -42,7 +42,7 @@ jobs:
           push: true
           file: src/Review-Filmes.Web/Dockerfile
           tags: |
-            oagara/review-filmes:latest
-            oagara/review-filmes:${{ github.run_number }}
+            oagara/Review-Filmes.Web.csproj:latest
+            oagara/Review-Filmes.Web.csproj:${{ github.run_number }}
 
         
