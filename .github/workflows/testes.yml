@@ -17,4 +17,30 @@ jobs:
       - name: Execucao do teste unitario
         working-directory: ./src
         run: dotnet test ./Review-Filmes.Test.Unit/Review-Filmes.Test.Unit.csproj
+
+  integration-test:
+    name: Teste de Integracao
+    runs-on: ubuntu-latest
+    services:
+      postgre:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: review
+          POSTGRES_PASSWORD: postgresspwd
+          POSTGRES_DB: review-filmes
+    steps:
+      - name: Obtendo o codigo do projeto
+        uses: actions/checkout@v4
         
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.300"
+
+      - name: Execucao do teste Integrado
+        working-directory: ./src
+        run: dotnet test ./Review-Filmes.Test.Integration/Review-Filmes.Test.Integration.csproj
+        env:
+          ConnectionStrings__DefaultConnection: "Host=postgres;Database=review;Username=review;Password=Passw0rd2023!"
