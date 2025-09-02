@@ -80,7 +80,7 @@ jobs:
           SONAR_HOST_URL: "${{ secrets.SONAR_HOST_URL }}"
           SONAR_TOKEN: "${{ secrets.SONAR_TOKEN }}"
         with:
-          scanMetadataReportFile: ./src/.sonarqube/.sonar/report-task.txt
+          scanMetadataReportFile: ./src/.sonarqube/out/.sonar/report-task.txt
       - name: "Exibição do Quality Gate"
         if: ${{ always() }}
         run: |
