@@ -27,6 +27,7 @@ jobs:
     name: Teste Unitario
     needs: [build-app]
     uses: paragao01/desafio-cicd-01/.github/workflows/testes.yml@main
+    secrets: inherit
 
   release:
     name: Criacao de Release
