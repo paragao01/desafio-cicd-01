@@ -69,7 +69,7 @@ jobs:
       - name: Build e analise
         working-directory: ./src
         run: |
-          dotnet sonarscanner begin /k:"filme" /d:sonar.token="sqp_a9d3185a6b851868917d5f70d55bacd2b8d763c2" /d:sonar.host.url="http://localhost:9000"
+          dotnet sonarscanner begin /k:"filme" /d:sonar.token="sqp_2da74578c37c607b710054d3eb2c49fa33d83dea" /d:sonar.host.url="http://localhost:9000"
           dotnet build Review-Filmes.sln
-          dotnet sonarscanner end /d:sonar.token="sqp_a9d3185a6b851868917d5f70d55bacd2b8d763c2"
+          dotnet sonarscanner end /d:sonar.token="sqp_2da74578c37c607b710054d3eb2c49fa33d83dea"
 
