@@ -59,7 +59,7 @@ jobs:
             oagara/review-filmes:v${{ github.run_number }}
 
       - name: Executar o Trivy
-        uses: aquasecurity/trivy-action@v0.23.0
+        uses: aquasecurity/trivy-action@0.23.0
         with:
           scan-type: "image"
           image-ref: oagara/review-filmes:v${{ github.run_number }}
