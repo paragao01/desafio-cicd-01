@@ -13,7 +13,7 @@ jobs:
             - name: Configuração do Context
               uses: azure/k8s-set-context@v4
               with:
-                metohod: kubeconfig
+                method: kubeconfig
                 kubeconfig: ${{ secrets.K8S_CONFIG }}
 
             - name: Deploy no Kubernetes
