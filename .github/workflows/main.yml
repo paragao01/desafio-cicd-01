@@ -37,6 +37,11 @@ jobs:
       - name: Obtendo o codigo do projeto
         uses: actions/checkout@v4
 
+      - name: Analise do Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: ./src/Review-Filmes.Web/Dockerfile
+
       - name: Efetuando o Login no Docker Hub
         uses: docker/login-action@v3
         with:
@@ -53,4 +58,17 @@ jobs:
             oagara/review-filmes:latest
             oagara/review-filmes:v${{ github.run_number }}
 
-        
+      - name: Executar o Trivy
+        uses: aquasecurity/trivy-action@v0.23.0
+        with:
+          scan-type: "image"
+          image-ref: oagara/review-filmes:v${{ github.run_number }}
+          format: "sarif"
+          output: "trivy-docker-result.sarif"
+          severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+
+      - name: Upload do Arquivo Trivy para o GitHub Actions
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          category: "docker-result"          
+          sarif_file: trivy-docker-result.sarif
