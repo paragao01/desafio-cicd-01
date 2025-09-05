@@ -18,13 +18,8 @@ jobs:
 
             - name: Deploy no Kubernetes
               uses: Azure/k8s-deploy@v5
-              with:
-                name: meucluster
-                action: deploy
-                strategy: basic
-
-                private-cluster: true
-                manifests:  |
+              with:                
+                manifests: |
                   k8s/deployment.yaml
                 images: |
                   oagara/review-filmes:v${{ github.run_number }}
