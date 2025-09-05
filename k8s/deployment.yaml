@@ -70,10 +70,10 @@ spec:
   selector:
     app: reviewfilmes
   ports:
-    - port: 80
-      targetPort: 8080
-      #nodePort: 30000
-  type: LoadBalancer
+      - port: 80
+        targetPort: 8080
+        nodePort: 30000
+  type: LoadBalancer  
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
